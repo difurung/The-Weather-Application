@@ -14,91 +14,82 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-    
+
     <link rel="stylesheet" href="assets/style.css" />
     <title>Weather Forecast</title>
   </head>
   <body>
-    <header class = "container-fluid bg-info text-light text-align-center mb-5 p-3">
+    <header
+      class="container-fluid bg-info text-light text-align-center mb-5 p-3"
+    >
       <div class="d-flex align-items-center">
         <h1>The Weather Application</h1>
       </div>
     </header>
 
+    <section class="container">
+      <div class="row">
+        <div id="Search" class="container col-lg-2">
+          <h3>Enter City here:</h3>
+          <input type="text"  id="citySearch" class="form-control"/>
+          <button id="search"  class="btn btn-info">Search</button>
 
-<section class="container">
-  <div class="row">
-    <div id="Search" class = "container col-lg-2">
-    
-        <h3>Enter City here:</h3>
-        <input type="text" class="form-control">
-        <button class="btn btn-info">Search</button>
+          <div>
+            <ul id="history">
+              
+            </ul>
+          </div>
+        </div>
       
-      <div>
-        <ul id="history">
-          <li>place</li>
-          <li>place</li>
-          <li>place</li>
-          <li>place</li>
-          <li>place</li>
-        </ul>
-      </div>
-    </div>
-   
-      <div class="container border border-dark col-lg-10">
-        <h3 id="City" class="">City</h3>
-        <h4 id="curDate" class="">date</h4>
-        <img src="#" alt="" id="tIcon">
-        <p id="temp">temp</p>
-        <p id="hum">humidity</p>
-        <p id="wind">wind</p>
-      </div>
+        <div class="container mb-5 border border-dark col-lg-10">
+          <h3 id="City" class="">City</h3>
+          <h4 id="curDate" class="">date</h4>
+          <img src="#" alt="" id="tIcon" />
+          <p id="temp">Temp: </p>
+          <p id="hum">Humidity: </p>
+          <p id="wind">Wind: </p>
+        </div>
 
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-2">
-            
-        </div>    
-        <div class="text-center bg-info col-12 col-md-6 col-lg-2">
-          <h4 id="day1" class="">date</h4>
-          <img src="#" alt="" id="tIcon">
-          <p id="temp">temp</p>
-          <p id="hum">humidity</p>
-          <p id="wind">wind</p>       
-        </div>    
-        <div class="text-center bg-info col-12 col-md-6 col-lg-2">
-          <h4 id="day2" class="">date</h4>
-          <img src="#" alt="" id="tIcon">
-          <p id="temp">temp</p>
-          <p id="hum">humidity</p>
-          <p id="wind">wind</p>       
-        </div>    
-        <div class="text-center bg-info col-12 col-md-6 col-lg-2">
-          <h4 id="day3" class="">date</h4>
-          <img src="#" alt="" id="tIcon">
-          <p id="temp">temp</p>
-          <p id="hum">humidity</p>
-          <p id="wind">wind</p>       
-        </div>    
-        <div class="text-center bg-info col-12 col-md-6 col-lg-2">
-          <h4 id="day4" class="">date</h4>
-          <img src="#" alt="" id="tIcon">
-          <p id="temp">temp</p>
-          <p id="hum">humidity</p>
-          <p id="wind">wind</p>       
-        </div>    
-        <div class="text-center bg-info col-12 col-md-6 col-lg-2">
-          <h4 id="day5" class="">date</h4>
-          <img src="#" alt="" id="tIcon">
-          <p id="temp">temp</p>
-          <p id="hum">humidity</p>
-          <p id="wind">wind</p>       
-        </div>    
-        
+        <div class="row justify-content-end gap-2">
           
-          </div>  
-  </div>
-</section>
- 
+          <div class="text-center bg-info mb-4 col-12 col-md-6 col-lg-2">
+            <h4 id="day1" class="">date</h4>
+            <img src="#" alt="" id="tIcon" />
+            <p id="temp">Temp: </p>
+            <p id="hum">Humidity: </p>
+            <p id="wind">Wind: </p>
+          </div>
+          <div class="text-center bg-info mb-4 col-12 col-md-6 col-lg-2">
+            <h4 id="day2" class="">date</h4>
+            <img src="#" alt="" id="tIcon" />
+            <p id="temp">Temp: </p>
+            <p id="hum">Humidity: </p>
+            <p id="wind">Wind: </p>
+          </div>
+          <div class="text-center bg-info mb-4 col-12 col-md-6 col-lg-2">
+            <h4 id="day3" class="">date</h4>
+            <img src="#" alt="" id="tIcon" />
+            <p id="temp">Temp: </p>
+            <p id="hum">Humidity: </p>
+            <p id="wind">Wind: </p>
+          </div>
+          <div class="text-center bg-info mb-4 col-12 col-md-6 col-lg-2">
+            <h4 id="day4" class="">date</h4>
+            <img src="#" alt="" id="tIcon" />
+            <p id="temp">Temp: </p>
+            <p id="hum">Humidity: </p>
+            <p id="wind">Wind: </p>
+          </div>
+          <div class="text-center bg-info mb-4 col-12 col-md-6 col-lg-2">
+            <h4 id="day5" class="">date</h4>
+            <img src="#" alt="" id="tIcon" />
+            <p id="temp">Temp: </p>
+            <p id="hum">Humidity: </p>
+            <p id="wind">Wind: </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script
