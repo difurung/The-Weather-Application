@@ -29,62 +29,66 @@ $("#search").click(function (event) {
         $("<li>").text(cityInput).appendTo($("#history")).addClass("city-search"); 
         // $("<li>").text(cityInput).appendTo($("#history")).addClass("city-search"); 
 
-
-
-    let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&appid=ced6331887cb8168b2eccb551eab7480&units=imperial";
-
-
-    fetch(queryURL)
-    .then(function (response) {
-        console.log(response);
-    if (response.status === 200) {
-    response.json()
+        
+        
+        
+        let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&appid=ced6331887cb8168b2eccb551eab7480&units=imperial";
+        
+        fetch(queryURL)
+        .then(function (response) {
+            console.log(response);
+            if (response.status === 200) {
+                response.json()
+                
+                .then(function (data) {
+                    console.log(data)
+                    let lat = data.coord.lat
+                    console.log(lat)
+                    let long = data.coord.lon
+                    console.log(long)
+                    //for(let i = 0; i < 6; i++){
+                        //need to create variables!!
+                        let city = data.name
+                        console.log(city)
+                        var wind = data.wind.speed
+                        console.log(wind)
+                        var humid = data.main.humidity
+                        console.log(humid)
+                        var temp = data.main.temp
+                        console.log(temp)
+                        
+                        
+//Renders data
+    // currHTML = `<div class="text-center bg-info mb-4 col-12 col-md-6 col-lg-2">
+    //         <h4 id="day2" class="">date</h4>
+    //         <img src="#" alt="" id="tIcon" />
+    //         <p id="temp">Temp:${temp}</p>
+    //         <p id="hum">Humidity:${humidity}</p>
+    //         <p id="wind">Wind:${wind}</p>
+    //       </div>`
     
-    .then(function (data) {
-    console.log(data)
-    let lat = data.coord.lat
-        console.log(lat)
-    let long = data.coord.lon
-        console.log(long)
-    //for(let i = 0; i < 6; i++){
-    //need to create variables!!
-    let city = data.name
-        console.log(city)
-    var wind = data.wind.speed
-        console.log(wind)
-    var humid = data.main.humidity
-        console.log(humid)
-    var temp = data.temp.humidity
-        console.log(temp)
-
-
-    //Renders data
-    currHTML = `<div class="text-center bg-info mb-4 col-12 col-md-6 col-lg-2">
-            <h4 id="day2" class="">date</h4>
-            <img src="#" alt="" id="tIcon" />
-            <p id="temp">Temp:${temp}</p>
-            <p id="hum">Humidity:${humidity}</p>
-            <p id="wind">Wind:${wind}</p>
-          </div>`
-
     //displayCityName(data.name, data.sys.country);
     //getWeather(lat, lon);
+    renderForecast(lat, long)
     
-    });
+});
+}
+//calls forecast function
 
-    }
-    
-    
+});
+//Forecast function starts here  
 
-    });
+function renderForecast(lat, long){
+    let forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&units=imperial&appid=22512877ada2a919ebc827b52e0ed0a5'
+    console.log(forecastURL)
+    
+    
 }
 
+});
 
 
 
-
-
-);
 
 
 
