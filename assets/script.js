@@ -2,11 +2,14 @@
 // http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=ced6331887cb8168b2eccb551eab7480
 //let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&appid=ced6331887cb8168b2eccb551eab7480&units=imperial";
 //let cityInput;
+
+
 var citArr = []
-// var fiveDay = ${'#five-day-forecast'};
-// var prevSearch = ${'previous-search'}
 var current = document.querySelector("#current");
 var fiveday = document.querySelector("#fiveday");
+
+
+
 
 //put the user input into the city
 $("#search").click(function (event) {
@@ -25,11 +28,11 @@ $("#search").click(function (event) {
     city: cityInput,
   };
 
-  citArr = JSON.parse(localStorage.getItem("prevSearch")) || [];
+  citArr = JSON.parse(localStorage.getItem("city")) || [];
 
   citArr.push(storeObj);
 
-  localStorage.setItem("prevSearch", JSON.stringify(citArr));
+  localStorage.setItem("city", JSON.stringify(citArr));
 
 
   var cityInput = $("#citySearch").val("");
@@ -71,7 +74,7 @@ var getCity = function (cityName) {
           var currHTML = `<div class="text-center bg-info mb-4 col-12 col-md-6 col-lg-2">
             <h4 id="current-day" class="">Today's Forecast</h4>
             <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="" id="tIcon" />
-            <p id="temp">Temp: ${temp}deg</p>
+            <p id="temp">Temp: ${temp}°F</p>
             <p id="hum">Humidity: ${humid}%</p>
             <p id="wind">Wind: ${wind}mph</p>
         </div>`;
@@ -101,10 +104,10 @@ var getCity = function (cityName) {
     .then(res => res.json())
     .then(data => {
       console.groupCollapsed(data);
-      for (let i=0; i < data.list.length; i=i+7){
+      for (let i=0; i < data.list.length; i=i+8){
       var day = data.list[i].dt_txt;
-      //var time = dayInfo.split(" ");
-      //var weekDay = timeInfo[i];
+      var time = day.split(" ");
+      var weekDay = time[0];
       var icon = data.list[i].weather[0].icon;  
       var temp = data.list[i].main.temp;
       console.log(temp)
@@ -114,7 +117,7 @@ var getCity = function (cityName) {
           
         
           <div class="text-center bg-info mb-4 col-12 col-md-6 col-lg-2">
-            <h4 id="day1" class="">${day}</h4>
+            <h4 id="day1" class="">${weekDay}</h4>
             <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="" id="tIcon" />
             <p id="temp">Temp: ${temp}°F</p>
             <p id="hum">Humidity: ${humidity}%</p>
@@ -127,18 +130,20 @@ var getCity = function (cityName) {
     }
     )
 
-
+    
+    
+    
+    
   }
+  
+  
+  var loadSearch = function() {
+    var loadPrevious = JSON.parse(localStorage.getItem("city")) || [];
+    for (var i = 0; i < loadPrevious.length ; i++) {
+    $("<li>").text(loadPrevious[i].city).appendTo($("#history")).addClass("city-search");
+}
+loadSearch();
+}
 
 
 
-
-
-//get api to fetch data
-
-//store previous searches in local storage
-
-
-//populate current city data on main 
-
-//populates 5 day forcast on cards
