@@ -11,7 +11,7 @@ var searchInput = document.querySelector('#citySearch');
 //put the user input into the city
 var getCity = function (cityName) {
   var queryURL =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     cityName +
     "&appid=ced6331887cb8168b2eccb551eab7480&units=imperial";
   console.log(cityName);
@@ -39,7 +39,7 @@ var getCity = function (cityName) {
           //Renders data
           var currHTML = `<div class="text-center bg-info mb-4 col-12 col-md-6 col-lg-2">
             <h4 id="current-day" class="">Today's Forecast</h4>
-            <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="" id="tIcon" />
+            <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="" id="tIcon" />
             <p id="temp">Temp: ${temp}°F</p>
             <p id="hum">Humidity: ${humid}%</p>
             <p id="wind">Wind: ${wind}mph</p>
