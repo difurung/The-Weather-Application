@@ -15,13 +15,13 @@ This project was created to be a simple weather application that will give you t
 
 ## Screenshot
 
-![Screenshot of Application](./assets/Images/Quiz%20Screenshot2.png)
+![Screenshot of Application](assets/images/weather%20app.png)
 
 ## Access
 
 [Github Repository](https://github.com/difurung/The-Weather-Application)
 
-[Deployed Application](enter url here)
+[Deployed Application](https://difurung.github.io/The-Weather-Application/)
 
 ## License
 
